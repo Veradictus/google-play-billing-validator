@@ -16,11 +16,8 @@ Verifier.prototype.verifyINAPP = function (receipt) {
   this.options.json = false;
   
   let urlPattern = "https://www.googleapis.com/androidpublisher/v3/applications/%s/purchases/products/%s/tokens/%s";
-  if ("developerPayload" in receipt) {
-    urlPattern += ":acknowledge";
-    this.options.body = {
-      "developerPayload": receipt.developerPayload
-    }
+  if ("consume" in receipt) {
+    urlPattern += ":consume";
     this.options.method = 'post';
     this.options.json = true;
   }
