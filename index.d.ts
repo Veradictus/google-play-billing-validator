@@ -7,6 +7,7 @@ export interface Receipt {
   packageName: string;
   productId: string;
   purchaseToken: string;
+  consume?: boolean
 }
 
 export interface SubscriptionReceipt extends Receipt {
